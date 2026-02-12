@@ -1,29 +1,45 @@
 import torch
-from torchvision import datasets
-from train_triplet import ResNetEmbedding
-from utils import build_prototypes
-from PIL import Image
-from torchvision import transforms
+import torch.nn as nn
+from torchvision import datasets, transforms, models
+from torch.utils.data import DataLoader
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-tf = transforms.Compose([
+# ===== Transform (giống lúc train) =====
+transform = transforms.Compose([
     transforms.Resize((224,224)),
     transforms.ToTensor(),
-    transforms.Normalize([0.485,0.456,0.406],[0.229,0.224,0.225])
+    transforms.Normalize([0.485,0.456,0.406],
+                         [0.229,0.224,0.225])
 ])
 
-model = ResNetEmbedding().to(DEVICE)
-model.load_state_dict(torch.load("../outputs/triplet_model.pth"))
+# ===== Load test dataset =====
+test_ds = datasets.ImageFolder("../dataset/val", transform=transform)
+test_loader = DataLoader(test_ds, batch_size=16, shuffle=False)
+
+class_names = test_ds.classes
+
+# ===== Load model =====
+model = models.resnet18(weights=None)
+model.fc = nn.Linear(model.fc.in_features, 7)
+model.load_state_dict(torch.load("../outputs/model.pth", map_location=DEVICE))
+model.to(DEVICE)
 model.eval()
 
-train_ds = datasets.ImageFolder("../dataset/train")
-protos = build_prototypes(model, train_ds, DEVICE)
+# ===== Evaluate =====
+correct = 0
+total = 0
 
-img = tf(Image.open("test_stool.jpg").convert("RGB")).unsqueeze(0).to(DEVICE)
-emb = model(img)
+with torch.no_grad():
+    for imgs, labels in test_loader:
+        imgs, labels = imgs.to(DEVICE), labels.to(DEVICE)
+        outputs = model(imgs)
+        _, preds = torch.max(outputs, 1)
 
-dists = {k: torch.norm(emb - v).item() for k,v in protos.items()}
-pred = min(dists, key=dists.get)
+        correct += (preds == labels).sum().item()
+        total += labels.size(0)
 
-print("Predicted Bristol Stool Type:", pred + 1)
+accuracy = 100 * correct / total
+print("Total samples:", total)
+print("Correct predictions:", correct)
+print("Test Accuracy: {:.2f}%".format(accuracy))

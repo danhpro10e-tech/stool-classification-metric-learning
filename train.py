@@ -56,3 +56,5 @@ for epoch in range(10):
 
 os.makedirs("../outputs", exist_ok=True)
 torch.save(model.state_dict(), "../outputs/model.pth")
+# C:\github\Phan-Van-Danh> cd C:\github\Phan-Van-Danh\src
+#& "C:/Users/Danh/AppData/Local/Programs/Python/Python311/python.exe" train.py
