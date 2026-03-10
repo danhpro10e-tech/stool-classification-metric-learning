@@ -1,15 +1,60 @@
 # Python
 __pycache__/
-*.pyc
-
-# Virtual env
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
 venv/
+ENV/
+env.bak/
+venv.bak/
+pythonenv*
+
+# Virtual Environment
+venv/
+env/
+.virtualenv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# PyTorch
+*.pth
+*.pt
+*.pkl
 
 # Dataset
 dataset/
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tiff
 
-# Outputs (model weights)
-outputs/*.pth
+# Outputs
+outputs/
+test_results*/
+error_analysis*/
+
+# Logs
+logs/
+*.log
+tensorboard/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# Distribution
+dist/
+build/
+*.egg-info/
 
 # OS
 .DS_Store
+Thumbs.db

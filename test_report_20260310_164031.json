@@ -1,0 +1,108 @@
+{
+  "summary": {
+    "Type-2": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0,
+      "avg_confidence": 0
+    },
+    "Type-3": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0,
+      "avg_confidence": 0
+    },
+    "Type-4": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0,
+      "avg_confidence": 0
+    },
+    "Type-5": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0,
+      "avg_confidence": 0
+    },
+    "Type-6": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0,
+      "avg_confidence": 0
+    },
+    "Type-7": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0,
+      "avg_confidence": 0
+    },
+    "overall": {
+      "total_images": 0,
+      "total_correct": 0,
+      "overall_accuracy": 0
+    }
+  },
+  "detailed": {
+    "Type-2": {
+      "total": 0,
+      "correct": 0,
+      "wrong": 0,
+      "confidences": [],
+      "predictions": [],
+      "details": [],
+      "accuracy": 0,
+      "avg_confidence": 0
+    },
+    "Type-3": {
+      "total": 0,
+      "correct": 0,
+      "wrong": 0,
+      "confidences": [],
+      "predictions": [],
+      "details": [],
+      "accuracy": 0,
+      "avg_confidence": 0
+    },
+    "Type-4": {
+      "total": 0,
+      "correct": 0,
+      "wrong": 0,
+      "confidences": [],
+      "predictions": [],
+      "details": [],
+      "accuracy": 0,
+      "avg_confidence": 0
+    },
+    "Type-5": {
+      "total": 0,
+      "correct": 0,
+      "wrong": 0,
+      "confidences": [],
+      "predictions": [],
+      "details": [],
+      "accuracy": 0,
+      "avg_confidence": 0
+    },
+    "Type-6": {
+      "total": 0,
+      "correct": 0,
+      "wrong": 0,
+      "confidences": [],
+      "predictions": [],
+      "details": [],
+      "accuracy": 0,
+      "avg_confidence": 0
+    },
+    "Type-7": {
+      "total": 0,
+      "correct": 0,
+      "wrong": 0,
+      "confidences": [],
+      "predictions": [],
+      "details": [],
+      "accuracy": 0,
+      "avg_confidence": 0
+    }
+  },
+  "errors": []
+}
